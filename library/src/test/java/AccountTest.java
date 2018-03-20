@@ -13,11 +13,11 @@ public class AccountTest {
 
   @Before
   public void setUp() throws Exception {
-    account = new Account("1234-1234",1000.00);
+    account = new Account("1234-1234",10000.00);
   }
 
   @Test
-  public void checkBalance() {
+  public void checkBalance()  {
     assertThat(account.getBalance(), is(1000.00));
   }
 
@@ -36,5 +36,9 @@ public class AccountTest {
     new Account("1234-123", 1001);
   }
 
-
+  @Test
+  public void checkDebitAmount() {
+    account.debitAmount(500);
+    assertThat(account.getBalance(),is(9500.0));
+  }
 }

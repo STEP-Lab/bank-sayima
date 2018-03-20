@@ -7,7 +7,7 @@ import static java.lang.String.valueOf;
 public class Account {
 
   private final String accountNumber;
-  private final double balance;
+  private double balance;
 
   public Account(String accountNumber, double balance) throws MinimumBalanceException, InvalidAccountNumberException {
     if(isInValidAccountNo(accountNumber)){
@@ -27,5 +27,9 @@ public class Account {
   }
   public static boolean isInValidAccountNo(String accountNumber){
     return !Pattern.matches("[0-9]{4}[-][0-9]{4}",valueOf(accountNumber));
+  }
+
+  public void debitAmount(int amount) {
+    balance-=amount;
   }
 }
