@@ -29,7 +29,13 @@ public class Account {
     return !Pattern.matches("[0-9]{4}[-][0-9]{4}",valueOf(accountNumber));
   }
 
-  public void debitAmount(int amount) {
+  public void debitAmount(int amount) throws MinimumBalanceException {
+    if(balance-amount < 1000){
+      throw new MinimumBalanceException();
+    }
     balance-=amount;
+
   }
+
+
 }
