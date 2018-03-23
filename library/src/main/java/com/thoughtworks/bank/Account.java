@@ -1,20 +1,14 @@
 package com.thoughtworks.bank;
 
-import java.util.regex.Pattern;
-
-import static java.lang.String.valueOf;
-
 public class Account {
 
-  private final String accountNumber;
+  private final AccountNumber accountNumber;
   private double balance;
+  private static final int MINIMUM_BALANCE = 1000;
 
-  public Account(String accountNumber, double balance) throws MinimumBalanceException, InvalidAccountNumberException {
-    if(isInValidAccountNo(accountNumber)){
-      throw new InvalidAccountNumberException();
-    }
+  public Account(AccountNumber accountNumber, double balance) throws MinimumBalanceException {
     this.accountNumber = accountNumber;
-    if(balance < 1000) throw new MinimumBalanceException();
+    if(balance < MINIMUM_BALANCE) throw new MinimumBalanceException();
     this.balance = balance;
   }
 
@@ -22,15 +16,12 @@ public class Account {
     return balance;
   }
 
-  public String getAccountNumber() {
+  public AccountNumber getAccountNumber() {
     return accountNumber;
-  }
-  public static boolean isInValidAccountNo(String accountNumber){
-    return !Pattern.matches("[0-9]{4}[-][0-9]{4}",valueOf(accountNumber));
   }
 
   public void debitAmount(int amount) throws MinimumBalanceException {
-    if(balance-amount < 1000){
+    if(balance-amount < MINIMUM_BALANCE){
       throw new MinimumBalanceException();
     }
     balance-=amount;

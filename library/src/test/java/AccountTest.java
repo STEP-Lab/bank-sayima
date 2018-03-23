@@ -1,4 +1,5 @@
 import com.thoughtworks.bank.Account;
+import com.thoughtworks.bank.AccountNumber;
 import com.thoughtworks.bank.InvalidAccountNumberException;
 import com.thoughtworks.bank.MinimumBalanceException;
 import org.junit.Before;
@@ -13,7 +14,7 @@ public class AccountTest {
 
   @Before
   public void setUp() throws Exception {
-    account = new Account("1234-1234",10000.00);
+    account = new Account(new AccountNumber("1234-1234"),10000.00);
   }
 
   @Test
@@ -28,13 +29,9 @@ public class AccountTest {
 
   @Test(expected = MinimumBalanceException.class)
   public void checkMinimumBalance() throws MinimumBalanceException, InvalidAccountNumberException {
-    new Account("1235-1235",200.00);
+    new Account(new AccountNumber("1235-1235"),200.00);
   }
 
-  @Test(expected = InvalidAccountNumberException.class)
-  public void validateAccountNumber() throws MinimumBalanceException , InvalidAccountNumberException {
-    new Account("1234-123", 1001);
-  }
 
   @Test
   public void checkDebitAmount() throws MinimumBalanceException {
