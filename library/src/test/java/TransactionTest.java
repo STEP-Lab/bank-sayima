@@ -9,7 +9,7 @@ import static org.junit.Assert.assertThat;
 public class TransactionTest {
 
   @Test
-  public void mustRecordCorrectTransactionDate() {
+  public void mustCreateDebitTransaction() {
     Date date = new Date();
     DebitTransaction transaction = new DebitTransaction(date,1000, "another Account");
     assertThat(transaction.getDate(),is(date));

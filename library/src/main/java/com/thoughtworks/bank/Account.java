@@ -20,6 +20,7 @@ public class Account {
     return accountNumber;
   }
 
+
   public void debitAmount(int amount) throws MinimumBalanceException {
     if(balance-amount < MINIMUM_BALANCE){
       throw new MinimumBalanceException();

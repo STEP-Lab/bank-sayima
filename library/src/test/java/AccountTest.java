@@ -24,7 +24,8 @@ public class AccountTest {
 
   @Test
   public void checkAccountNumber() {
-    assertThat(account.getAccountNumber(),is("1234-1234"));
+    AccountNumber accountNumber = account.getAccountNumber();
+    assertThat(accountNumber.getNumber(),is("1234-1234"));
   }
 
   @Test(expected = MinimumBalanceException.class)

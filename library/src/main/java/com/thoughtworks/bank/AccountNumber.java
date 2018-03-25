@@ -18,4 +18,7 @@ public class AccountNumber {
     return !Pattern.matches("[0-9]{4}[-][0-9]{4}",valueOf(accountNumber));
   }
 
+  public String getNumber() {
+    return accountNumber;
+  }
 }
