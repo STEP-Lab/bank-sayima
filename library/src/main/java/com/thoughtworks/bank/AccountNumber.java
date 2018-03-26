@@ -1,5 +1,6 @@
 package com.thoughtworks.bank;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import static java.lang.String.valueOf;
@@ -20,5 +21,19 @@ public class AccountNumber {
 
   public String getNumber() {
     return accountNumber;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    AccountNumber that = (AccountNumber) o;
+    return Objects.equals(accountNumber, that.accountNumber);
+  }
+
+  @Override
+  public int hashCode() {
+
+    return Objects.hash(accountNumber);
   }
 }

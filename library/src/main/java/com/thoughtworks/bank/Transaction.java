@@ -3,7 +3,7 @@ package com.thoughtworks.bank;
 import java.util.Date;
 import java.util.Objects;
 
-public class Transaction {
+public abstract class Transaction {
   private double amount;
   private String to;
   private Date date;
@@ -30,7 +30,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-
     return Objects.hash(amount, to, date);
   }
+
 }

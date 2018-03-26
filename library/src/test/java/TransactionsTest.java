@@ -1,3 +1,4 @@
+import com.thoughtworks.bank.CreditTransaction;
 import com.thoughtworks.bank.DebitTransaction;
 import com.thoughtworks.bank.Transaction;
 import com.thoughtworks.bank.Transactions;
@@ -17,4 +18,11 @@ public class TransactionsTest {
     Transaction debitTransaction = new DebitTransaction(new Date(),1000,"another");
     assertThat(transactions.list,hasItem(debitTransaction));
     }
+
+  @Test
+  public void shouldRecordCreditTransaction() {
+    Transactions transactions = new Transactions();
+    transactions.credit(5000,"another");
+    Transaction creditTransaction = new CreditTransaction(new Date(),1000,"another");
+  }
 }
