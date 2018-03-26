@@ -1,8 +1,8 @@
-build/
+**/build/
 .settings/
-.vscode/
-gradle/
+.vscode/g
 .gradle/
 .project
 .idea/
 *.iml
+**/out/
