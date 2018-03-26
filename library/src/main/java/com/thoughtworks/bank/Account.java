@@ -36,4 +36,10 @@ public class Account {
   public Transactions getTransactions() {
     return transactions;
   }
+
+  public void creditAmount(double amount, String from) {
+    transactions.credit(amount,from);
+    balance+=amount;
+
+  }
 }

@@ -23,6 +23,7 @@ public class TransactionsTest {
   public void shouldRecordCreditTransaction() {
     Transactions transactions = new Transactions();
     transactions.credit(5000,"another");
-    Transaction creditTransaction = new CreditTransaction(new Date(),1000,"another");
+    Transaction creditTransaction = new CreditTransaction(new Date(),5000,"another");
+    assertThat(transactions.list,hasItem(creditTransaction));
   }
 }

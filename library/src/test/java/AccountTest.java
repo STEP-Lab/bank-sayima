@@ -47,10 +47,17 @@ public class AccountTest {
     assertThat(account.getTransactions(),is(transactions));
   }
 
+  @Test
+  public void checkTransactionAfterCreditMoney() throws MinimumBalanceException, InvalidAccountNumberException  {
+    Account account = new Account(new AccountNumber("1234-2345"),1005.0);
+    account.creditAmount(1095.0,"tez");
+    Transactions transactions = new Transactions();
+    transactions.credit(1095.0,"tez");
+    assertThat(account.getTransactions(),is(transactions));
+  }
+
   @Test(expected = MinimumBalanceException.class)
   public void checkDebitAmount_InvalidDebitAmount() throws MinimumBalanceException{
     account.debitAmount(9500, "another");
   }
-
-
 }
