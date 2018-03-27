@@ -1,4 +1,5 @@
-import com.thoughtworks.bank.DebitTransaction;
+package com.thoughtworks.bank;
+
 import org.junit.Test;
 
 import java.util.Date;

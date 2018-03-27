@@ -33,4 +33,16 @@ public abstract class Transaction {
     return Objects.hash(amount, to, date);
   }
 
+  public double getAmount() {
+    return amount;
+  }
+
+  @Override
+  public String toString() {
+    return "Transaction{" +
+            "amount=" + amount +
+            ", to='" + to + '\'' +
+            ", date=" + date +
+            '}';
+  }
 }

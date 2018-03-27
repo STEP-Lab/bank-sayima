@@ -1,6 +1,5 @@
+package com.thoughtworks.bank;
 
-import com.thoughtworks.bank.AccountNumber;
-import com.thoughtworks.bank.InvalidAccountNumberException;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
